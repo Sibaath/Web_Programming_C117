@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container 
+        {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 1000px;
+            background: #fff;
+            margin: 50px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            box-shadow: 0 35px 35 px rgba(0,0,0,0.1);
+        }
+        .left_side
+        {
+            position: relative;
+            background: rgb(10, 10, 58);
+            padding: 40px;
+            left: 0;
+            right: 0;
+        }
+        .right_side
+        {
+            position: relative;
+            background: #fff;
+            padding: 40px;
+        }
+
+        .profile_txt
+        {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .image_p
+        {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        img
+        {
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile_txt h2
+        {
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.4em;
+        }
+        .profile_txt h2 span
+        {
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+        .contact_info
+        {
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .title
+        {
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact_info ul{
+            position: relative;
+        }
+
+        .contact_info ul li
+        {
+            position: relative;
+            list-style: none;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .contact_info ul li span
+        {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .contact_info ul li .icon
+        {
+            display: inline-block;
+            width: 30px;
+            font-size: 18px;
+            color: #03a9f4;
+        }
+
+        .contact_info .about{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact_info .about_content{
+            color: #fff;
+            margin-bottom: 50px;
+            margin-top: 10px;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 25px;
+        }
+
+        .contact_info.education h5{
+            color: #03a9f4;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .contact_info.education h4:nth-child(2){
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 300;
+            line-height: 25px;
+        }
+
+        .contact_info.education h4{
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-weight: 300;
+            line-height: 25px;
+        }
+
+        .contact_info.languages .percent 
+        {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background:#081921;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .contact_info.languages .percent div{
+            position: absolute;
+            height: 100%;
+            top:0;
+            left:0;
+            background: #03a9f4;
+        }
+
+        .contact_info.languages ul li{
+            padding-bottom: 10px;
+        }
+
+        .skills
+        {
+            margin-bottom: 50px;
+        }
+
+        .projects
+        {
+            margin-bottom: 50px;
+        }
+
+        .projects ul{
+            margin-bottom: 20px;
+        }
+
+        .project_title
+        {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .skills:last-child
+        {
+            margin-bottom: 10px;
+        }
+
+        .title2
+        {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .acheivements_title
+        {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            padding-bottom:10px
+        }
+
+        .acheivements h3
+        {
+            font-weight: bold;
+        }
+
+        .projects h3{
+            font-weight: bold;
+        }
+
+        .projects ul:last-child{
+            padding-bottom: 0;
+        }
+
+        .acheivements ul{
+            padding-bottom: 30px;
+        }
+
+        .acheivements ul:last-child{
+            padding-bottom: 10px;
+        }
+
+        .certifications ul{
+            padding-bottom: 30px;
+        }
+
+        .certifications h3
+        {
+            font-weight: bold;
+        }
+
+        .certifications_title
+        {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            padding-bottom:10px
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left_side">
+            <div class="profile_txt">
+                <div class="image_p">
+                    <img src="./images/sibaath.jpg" alt="">
+                </div>
+                <h2>Sibaath Ahmed <br><span>Web Developer</span></h2>
+            </div>
+            <div class="contact_info">
+                <h3 class="about">about</h3>
+                <div class="about_content">Seeking an opportunity to work in a challenging environment to enhance my skills using every opportunity and gain my knowledge.</div>
+                <h3 class="title">Contact Info</h3>
+                <div style="padding-top:10px;">
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <span class="text">+91 741 8546 317</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                            <span class="text">sibaath@student.tce.edu</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-github-square" aria-hidden="true"></i></span>
+                            <span class="text">github.com/Sibaath</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
+                            <span class="text">linkedin.com/in/sibaath-ahmed</span>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <span class="text">Madurai,India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact_info education">
+                <h3 class="title">Education</h3>
+                <ul>
+                    <li>
+                        <h5>2022 - 2026</h5>
+                        <h4>Bachelor Degree in Computer Science</h4>
+                        <h4>Thiagarajar College of Engineering</h4>
+                        <h4 style="text-align: right;">9.15<span style="color: #03a9f4;">CGPA</span></h4>
+                    </li>
+                    <li>
+                        <h5>2020 - 2022</h5>
+                        <h4 >Higher Secondary Education</h4>
+                        <h4>Seventh Day Adventist Matric Higher Secondary School</h4>
+                        <h4 style="text-align: right;">95%</h4>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contact_info languages">
+                <h3 class="title">Languages</h3>
+                <ul>
+                    <li>
+                        <span class="text">English</span>
+                        <span class="percent">
+                            <div style="width: 90%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Tamil</span>
+                        <span class="percent">
+                            <div style="width: 95%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Arabic</span>
+                        <span class="percent">
+                            <div style="width: 80%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Hindi</i></span>
+                        <span class="percent">
+                            <div style="width: 75%;"></div>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        <div class="right_side">
+            <div class="skills">
+                <h2 class="title2">
+                    skills
+                </h2>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary">Java</button>
+                    <button type="button" class="btn btn-success">Python</button>
+                    <button type="button" class="btn btn-danger">HTML</button>
+                    <button type="button" class="btn btn-secondary">CSS</button>
+                    <button type="button" class="btn btn-warning">JavaScript</button>
+                    <button type="button" class="btn btn-dark">c</button>
+                    <button type="button" class="btn btn-secondary">Django</button>
+                    <button type="button" class="btn btn-info">SQL</button>
+                    <button type="button" class="btn btn-dark">Git & GitHub</button>
+                </div>
+            </div>
+                <div class="projects">
+                <h3 class="project_title">projects</h3>
+                <ul>
+                    <li>
+                        <h3 class="project">
+                                Fluid Sense -Daily residential water footprint calculator.
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li> <span style="font-weight: 400;">This project designed to <b>measure water expense</b> of each based on amount of water used with a accuracy of <b>98%</b>.</span></li>
+                            <li> An <b>IoT project</b> involved managing of both <b>hardware</b> and <b>software</b> components.</li>
+                            <li>Worked as <b>developer</b>  in the project.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="project">
+                            Hand Cricket Game     
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>This project is a <b>simulation of the normal handcricket game</b> that we used to play </li>
+                            <li> Worked as a <b>developer</b> in the project.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="project">
+                            Textile Billing Software  
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>This project aims to be <b>a one-stop platform for billing</b> realted operations in a textile.</li>
+                            <li>Worked as <b>developer</b> and <b>designer</b> in the Project</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="acheivements" style="padding-top:10px;">
+                <h3 class="acheivements_title" style="padding-bottom : 10px;">acheivements</h3>
+                <ul>
+                    <li>
+                        <h3 class="a1">
+                            IEEEXtreme Global Coding Competition
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li> Our team participated in the a one day <b>IEEEXtreme global coding competition</b>
+                                 and ended with <b>global rank 1930</b> and  
+                                <b>regional rank 647</b>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a2">
+                            Hand Cricket Game     
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>This project is a <b>simulation of the normal handcricket game</b> that we used to play </li>
+                            <li> Worked as a <b>developer</b> in the project.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a3">
+                            Solved 80 problems on Leetcode
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Gained experience on approaching problems and an 
+                                exposure to competitive programming. <b>RANK : 945008</b></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a3">
+                            SMART INDIA HACKATHON (SIH participation)
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Conducted by <b>the Government of India</b>, Where I chose 
+                  <b>Heritage and Culture</b> as our problem statement and prototyped 
+                  <b>an online shopping site</b> for selling Indian heritage products.</b></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a3">
+                            SMART INDIA HACKATHON (SIH participation)
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Presented our idea <b>GREEN MAPS</b> in the domain of 
+                                <b>environment sustainability</b>.A Map that contains different places
+                                with color based on parameters like <b>pollution level</b>,<b>particulate 
+                                    content</b> etc.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="certifications" style="padding-top:10px;">
+                <h3 class="certifications_title" style="padding-bottom : 10px;">CERTIFICATIONS</h3>
+                <ul>
+                    <li>
+                        <h3 class="a1">
+                            Introduction to front end development by Meta
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Successfully completed <b>Introduction to front end development</b> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a2">
+                            Great Learning-Front End Development-CSS
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Successfully completed <b>Front End Development-CSS</b> from <b>Great Learning</b> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a3">
+                            CSC – Diploma In ‘C’ Programming (DCP) 
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Successfully completed <b>Diploma In C Programming  (DCP)</b> </b> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="a4">
+                            Great Learning-HTML Attributes and Tags
+                        </h3>
+                        <ul style="text-align: justify;">
+                            <li>Successfully completed <b>HTML Attributes and Tags</b> from <b>Great Learning</b></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

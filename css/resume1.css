@@ -1,0 +1,67 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html
+{
+    font-size: 10px;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.conatiner
+{
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    padding: 5rem;
+    background-color: #070707;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+@media only screen and (max-width : 786px)
+{
+    .conatiner{
+        width : 100%;
+        grid-template-columns: 1fr;
+        padding: 3rem;
+        gap: 7rem;
+    }
+}
+.profile
+{
+    grid-column: 1 / -1;
+    margin-bottom: 2 rem;
+}
+
+.profile_container
+{
+    display: flex;
+    gap : 2rem;
+}
+
+.profile_image
+{
+    max-width: 250px;
+
+}
+
+.first_name
+{
+    color: white;
+    font-size: 200;
+    font-size: clamp(2rem,8vw,4rem);
+}
+

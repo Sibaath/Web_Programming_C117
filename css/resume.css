@@ -3,26 +3,31 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    left: 300px;
-    top: 10px;
+    position: relative;
+    left: 600px;
+    top: 0px;
+    
 }
 
 #summary
 {
-    position: absolute;
-    left: 0;
-    width: 200px;
-}
-
-
-#content
-{
-    position: absolute;
+    width: 250px; 
+    justify-content: center;
 }
 
 #project
 {
     width: 500px;
 }
+ 
+
+#content
+{
+    position: absolute;
+}
+
+#part1
+{
+    padding-left: 300px;
+}
+
